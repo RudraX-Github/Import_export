@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Import/Export Training Institutes in Surat</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <header class="bg-gradient-to-r from-slate-900 to-brand-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-500/20 text-brand-100 text-sm font-semibold tracking-wider mb-4 border border-brand-500/30">
+                <i class="fas fa-ship mr-2"></i> GLOBAL TRADE EDUCATION
+            </span>
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+                Import/Export Institutes in Surat
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+                Discover the best private coaching centers and government-backed online programs to master international trade, logistics, and customs compliance.
+            </p>
+            
+            <!-- Search Bar -->
+            <div class="max-w-md mx-auto relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-search text-slate-400"></i>
+                </div>
+                <input type="text" id="searchInput" class="block w-full pl-10 pr-3 py-3 border border-transparent rounded-xl leading-5 bg-white/10 text-white placeholder-slate-300 focus:outline-none focus:bg-white focus:text-slate-900 focus:placeholder-slate-400 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 sm:text-sm transition-all duration-300 backdrop-blur-sm" placeholder="Search by institute name or location...">
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        
+        <!-- Private Institutes Section -->
+        <div class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="text-2xl font-bold text-slate-900 flex items-center">
+                    <i class="fas fa-building text-brand-500 mr-3"></i> Top Private Institutes
+                </h2>
+                <span id="resultCount" class="text-sm font-medium text-slate-500 bg-slate-200 px-3 py-1 rounded-full">5 results</span>
+            </div>
+
+            <div id="instituteGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1: Varni Exim -->
+                <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 flex flex-col h-full fade-in" data-name="Varni Exim Institute" data-location="Parvat Patia Punagam">
+                    <div class="p-6 flex-grow">
+                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Varni Exim Institute</h3>
+                        
+                        <div class="flex items-start text-sm text-slate-600 mb-4 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-red-500"></i>
+                            <p>409/410, Polaris Mall, Radhika Park Society, Punagam, Vesu Canal Road, Parvat Patia, Surat - 395010</p>
+                        </div>
+                        
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed line-clamp-5 hover:line-clamp-none transition-all">
+                            This institute specializes in structured international trade training focusing on practical execution. Their program comprehensively covers product finalization, supplier strategy, export documentation, and risk assessment parameters. Students learn how to communicate seamlessly with international buyers and manage cross-border payment structures securely. They also offer allied business compliance services like IEC and GST registration.
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="flex items-center text-sm font-semibold text-slate-700 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3">
+                                <i class="fas fa-indian-rupee-sign"></i>
+                            </div>
+                            <span>Fee: Inquiry Required</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Varni+Exim+Institute+Polaris+Mall+Surat" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full bg-slate-900 hover:bg-brand-600 text-white font-medium py-2.5 px-4 rounded-xl transition-colors duration-200">
+                            <i class="fas fa-map-marked-alt mr-2"></i> View on Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2: iiiEM -->
+                <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 flex flex-col h-full fade-in" style="animation-delay: 0.1s;" data-name="iiiEM International Institute of Import Export Management" data-location="Nanpura Athwa Gate">
+                    <div class="p-6 flex-grow">
+                        <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">iiiEM</h3>
+                        
+                        <div class="flex items-start text-sm text-slate-600 mb-4 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-red-500"></i>
+                            <p>Tirupati Plaza, B Wing, Near Collector Office, Athwa Gate, Kharwawad, Nanpura, Surat - 395001</p>
+                        </div>
+                        
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed line-clamp-5 hover:line-clamp-none transition-all">
+                            Operating as a prominent autonomous trade institution across India, iiiEM delivers academic and field-level training in global logistics. Their courses focus on international marketing, foreign exchange risk protocols, and port documentation procedures. They guide students through Customs House Agent (CHA) regulations and choosing appropriate freight forwarders. Additionally, they run dedicated international business incubation programs to help students launch live ventures.
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="flex items-center text-sm font-semibold text-slate-700 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3 shrink-0">
+                                <i class="fas fa-indian-rupee-sign"></i>
+                            </div>
+                            <span>₹12,500 (PG Diploma)<br>₹29,500 (Certification)</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=iiiEM+Tirupati+Plaza+Nanpura+Surat" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full bg-slate-900 hover:bg-brand-600 text-white font-medium py-2.5 px-4 rounded-xl transition-colors duration-200">
+                            <i class="fas fa-map-marked-alt mr-2"></i> View on Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Bharat Udaan Mission -->
+                <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 flex flex-col h-full fade-in" style="animation-delay: 0.2s;" data-name="Bharat Udaan Mission Amit Mulani" data-location="Mota Varachha">
+                    <div class="p-6 flex-grow">
+                        <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Bharat Udaan Mission</h3>
+                        
+                        <div class="flex items-start text-sm text-slate-600 mb-4 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-red-500"></i>
+                            <p>515, MBC-Meridian Business Center, Lajamni Chowk, Shanti Niketan Society, Mota Varachha, Surat - 394101</p>
+                        </div>
+                        
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed line-clamp-5 hover:line-clamp-none transition-all">
+                            This academy delivers a highly praised entrepreneur-centric education module designed for beginners looking to break into global shipping. Guided by government-recognized trade advisors, the curriculum breaks down complex customs, logistics, and international trade laws into easy-to-understand frameworks. Training focuses sharply on product selection, B2B digital marketing strategies, and secure export financing. 
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="flex items-center text-sm font-semibold text-slate-700 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3">
+                                <i class="fas fa-indian-rupee-sign"></i>
+                            </div>
+                            <span>₹8,000 to ₹15,000</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bharat+Udaan+Mission+MBC+Meridian+Surat" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full bg-slate-900 hover:bg-brand-600 text-white font-medium py-2.5 px-4 rounded-xl transition-colors duration-200">
+                            <i class="fas fa-map-marked-alt mr-2"></i> View on Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4: SEAIR Training -->
+                <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 flex flex-col h-full fade-in" style="animation-delay: 0.3s;" data-name="SEAIR Training Institute of Import Export" data-location="Mota Varachha Lajamani Chowk">
+                    <div class="p-6 flex-grow">
+                        <div class="w-12 h-12 bg-cyan-50 text-cyan-600 rounded-lg flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">SEAIR Training Institute</h3>
+                        
+                        <div class="flex items-start text-sm text-slate-600 mb-4 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-red-500"></i>
+                            <p>225, Opera Business Hub, Lajamani Chowk, Mota Varachha, Surat - 395006</p>
+                        </div>
+                        
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed line-clamp-5 hover:line-clamp-none transition-all">
+                            SEAIR is an industry-aligned training facility prioritizing compliance and documentation management. Their specialized courses walk students through the complex legal processes required for global commercial trade. Notably, they feature unique specialized training tracks focused on the import and export dynamics of the Gems and Jewellery market, which is crucial for Surat-based merchants. 
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="flex items-center text-sm font-semibold text-slate-700 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3">
+                                <i class="fas fa-indian-rupee-sign"></i>
+                            </div>
+                            <span>Fee: Corporate/Custom Rates</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=SEAIR+Training+Institute+Opera+Business+Hub+Surat" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full bg-slate-900 hover:bg-brand-600 text-white font-medium py-2.5 px-4 rounded-xl transition-colors duration-200">
+                            <i class="fas fa-map-marked-alt mr-2"></i> View on Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 5: International Org (2 Branches) -->
+                <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-200 flex flex-col h-full fade-in" style="animation-delay: 0.4s;" data-name="International Organization of Importer & Exporter" data-location="Majura Gate Varachha Road">
+                    <div class="p-6 flex-grow">
+                        <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center text-xl mb-4">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Int. Org. of Importer & Exporter</h3>
+                        
+                        <div class="flex flex-col gap-2 mb-4">
+                            <div class="flex items-start text-xs text-slate-600 bg-slate-50 p-2 rounded-lg border border-slate-100">
+                                <i class="fas fa-map-marker-alt mt-0.5 mr-2 text-red-500"></i>
+                                <p><strong>Branch 1:</strong> 805, ICC Building, Near Kadiwala School, Majura Gate, Surat - 395002</p>
+                            </div>
+                            <div class="flex items-start text-xs text-slate-600 bg-slate-50 p-2 rounded-lg border border-slate-100">
+                                <i class="fas fa-map-marker-alt mt-0.5 mr-2 text-red-500"></i>
+                                <p><strong>Branch 2:</strong> Off. 2, 2nd Flr, Heera Panna Complex, Varachha Road, Surat - 395006</p>
+                            </div>
+                        </div>
+                        
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed line-clamp-4 hover:line-clamp-none transition-all">
+                            This institute bridges vocational management education with technical cross-border logistics systems. Their programs target structural trade training, covering international contract drafting and multi-currency banking clearing mechanisms. They help students master global supply chain workflows by utilizing dedicated global trade software utilities.
+                        </p>
+                    </div>
+                    <div class="px-6 py-4 border-t border-slate-100 bg-slate-50/50">
+                        <div class="flex items-center text-sm font-semibold text-slate-700 mb-4">
+                            <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3">
+                                <i class="fas fa-indian-rupee-sign"></i>
+                            </div>
+                            <span>Fee: Request at Branch</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <a href="https://www.google.com/maps/search/?api=1&query=International+Organization+Of+Importer+Exporter+ICC+Building+Surat" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full bg-slate-900 hover:bg-brand-600 text-white font-medium py-2 px-2 text-sm rounded-xl transition-colors duration-200">
+                                <i class="fas fa-map-pin mr-1.5"></i> Branch 1
+                            </a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=International+Organization+Of+Importer+Exporter+Heera+Panna+Surat" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full bg-slate-900 hover:bg-brand-600 text-white font-medium py-2 px-2 text-sm rounded-xl transition-colors duration-200">
+                                <i class="fas fa-map-pin mr-1.5"></i> Branch 2
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- No Results Message -->
+            <div id="noResults" class="hidden text-center py-12">
+                <i class="fas fa-search-minus text-4xl text-slate-300 mb-4"></i>
+                <h3 class="text-lg font-medium text-slate-900">No institutes found</h3>
+                <p class="text-slate-500">Try adjusting your search terms.</p>
+            </div>
+        </div>
+
+        <!-- Government Initiatives Section -->
+        <div class="mt-8 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl -mr-16 -mt-16 opacity-50 pointer-events-none"></div>
+            
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center relative z-10">
+                <i class="fas fa-landmark text-blue-600 mr-3"></i> Official Government Alternatives
+            </h2>
+            <p class="text-slate-600 mb-8 max-w-3xl relative z-10">
+                If you prefer official, government-backed online training and certification programs rather than physical classes, consider these highly recommended national initiatives.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+                <!-- DGFT Learn -->
+                <a href="https://www.dgft.gov.in/CP/?opt=learn" target="_blank" class="group block p-6 rounded-2xl border-2 border-slate-100 hover:border-blue-500 hover:bg-blue-50/50 transition-all duration-300">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-blue-600 text-xl shrink-0 mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-700 mb-2 transition-colors">DGFT Learn Portal</h3>
+                            <p class="text-sm text-slate-600">Direct access to official Foreign Trade Policy (FTP) handbooks, registration guidelines, and helpdesk tools. Entirely free knowledge repository maintained by the Directorate General of Foreign Trade.</p>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- IIFT Niryat Bandhu -->
+                <a href="https://niryatbandhu.iift.ac.in/exim/" target="_blank" class="group block p-6 rounded-2xl border-2 border-slate-100 hover:border-orange-500 hover:bg-orange-50/50 transition-all duration-300">
+                    <div class="flex items-start">
+                        <div class="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center text-orange-600 text-xl shrink-0 mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-900 group-hover:text-orange-700 mb-2 transition-colors">IIFT Niryat Bandhu</h3>
+                            <p class="text-sm text-slate-600">An official Ministry of Commerce initiative run by the Indian Institute of Foreign Trade. They offer official online certification programs directly focused on starting out in EXIM operations.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center mt-auto">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-sm">&copy; 2024 Trade Education Directory. Data curated for informational purposes.</p>
+            <p class="text-xs mt-2 text-slate-500">Course fees and schedules are subject to change. Please contact the respective institutes for exact details.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const instituteCards = document.querySelectorAll('.institute-card');
+            const resultCount = document.getElementById('resultCount');
+            const noResults = document.getElementById('noResults');
+
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                let visibleCount = 0;
+
+                instituteCards.forEach(card => {
+                    const name = card.getAttribute('data-name').toLowerCase();
+                    const location = card.getAttribute('data-location').toLowerCase();
+                    
+                    if (name.includes(searchTerm) || location.includes(searchTerm)) {
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Update count tag
+                resultCount.textContent = `${visibleCount} result${visibleCount !== 1 ? 's' : ''}`;
+                
+                // Show/hide no results message
+                if (visibleCount === 0) {
+                    noResults.classList.remove('hidden');
+                } else {
+                    noResults.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
