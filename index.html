@@ -8,7 +8,7 @@
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -102,7 +102,7 @@
                 Import/Export Institutes in Surat
             </h1>
             <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-8">
-                Compare all 14 top coaching centers. Shortlist your favorites and add personal notes to track your research.
+                Compare top coaching centers. Review strict guarantees, live integrations, or incubation services, and track your visits with notes.
             </p>
             
             <!-- Search Bar -->
@@ -110,13 +110,80 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <i class="fas fa-search text-slate-400"></i>
                 </div>
-                <input type="text" id="searchInput" class="block w-full pl-10 pr-3 py-3 border border-transparent rounded-xl leading-5 bg-white/10 text-white placeholder-slate-300 focus:outline-none focus:bg-white focus:text-slate-900 focus:placeholder-slate-400 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 sm:text-sm transition-all duration-300 backdrop-blur-sm" placeholder="Search by institute name or location...">
+                <input type="text" id="searchInput" class="block w-full pl-10 pr-3 py-3 border border-transparent rounded-xl leading-5 bg-white/10 text-white placeholder-slate-300 focus:outline-none focus:bg-white focus:text-slate-900 focus:placeholder-slate-400 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 sm:text-sm transition-all duration-300 backdrop-blur-sm" placeholder="Search by institute name, guarantee or location...">
             </div>
         </div>
     </header>
 
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
         
+        <!-- Guarantee & Practical Integration Highlight Hub -->
+        <div class="mb-12 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-48 h-48 bg-teal-50 rounded-full blur-3xl -mr-12 -mt-12 opacity-40 pointer-events-none"></div>
+            
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                <div>
+                    <h2 class="text-2xl font-black text-slate-900 tracking-tight flex items-center">
+                        <i class="fas fa-handshake-angle text-brand-500 mr-3"></i> Support &amp; Shipment Guarantees Compared
+                    </h2>
+                    <p class="text-sm text-slate-500 mt-1">Quick analysis of major institutes marketing shipment execution models versus theoretical setups.</p>
+                </div>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 self-start md:self-auto">
+                    <i class="fas fa-circle-check mr-1.5 animate-pulse"></i> Hand-Holding &amp; Live Processes
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- PIETC Highlight Block -->
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50/50 p-4 rounded-2xl border border-amber-200 shadow-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-black text-amber-800 bg-amber-100 px-2 py-1 rounded uppercase tracking-wider">PIETC</span>
+                        <i class="fas fa-certificate text-amber-500 text-lg"></i>
+                    </div>
+                    <h3 class="font-extrabold text-slate-900 text-sm mb-1">Strict Shipment Guarantee</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Explicitly promises hand-holding support for your <strong>first 10 live transactions</strong>, prioritizing actual cargo shipping over abstract theories.
+                    </p>
+                </div>
+
+                <!-- Varni Exim Highlight Block -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50/50 p-4 rounded-2xl border border-blue-200 shadow-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-black text-blue-800 bg-blue-100 px-2 py-1 rounded uppercase tracking-wider">Varni Exim</span>
+                        <i class="fas fa-shield-halved text-blue-500 text-lg"></i>
+                    </div>
+                    <h3 class="font-extrabold text-slate-900 text-sm mb-1">10-Trade Promise &amp; Helpdesk</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Offers very similar coverage, stating: <strong>"Free support for your first 10 trades and lifetime helpdesk support"</strong> listed directly on their official site.
+                    </p>
+                </div>
+
+                <!-- 10X Exports Highlight Block -->
+                <div class="bg-gradient-to-br from-rose-50 to-red-50/50 p-4 rounded-2xl border border-rose-200 shadow-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-black text-rose-800 bg-rose-100 px-2 py-1 rounded uppercase tracking-wider">10X Exports</span>
+                        <i class="fas fa-truck-ramp-box text-rose-500 text-lg"></i>
+                    </div>
+                    <h3 class="font-extrabold text-slate-900 text-sm mb-1">Live Merchant GIFT Program</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Distinct model: Operates as an active merchant exporter, directly integrating students into their <strong>live export pipelines</strong> rather than standard training.
+                    </p>
+                </div>
+
+                <!-- iiiEM & GFE Business Highlight Block -->
+                <div class="bg-gradient-to-br from-slate-100 to-slate-200/50 p-4 rounded-2xl border border-slate-300 shadow-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-black text-slate-800 bg-slate-200 px-2 py-1 rounded uppercase tracking-wider">iiiEM &amp; GFE Business</span>
+                        <i class="fas fa-chart-simple text-slate-600 text-lg"></i>
+                    </div>
+                    <h3 class="font-extrabold text-slate-900 text-sm mb-1">Incubation &amp; Setups</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Deliver comprehensive <strong>Business Incubation &amp; Setup Support</strong>, but do not explicitly market or utilize the keyword <strong>"Guarantee"</strong> for cargo shipments.
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <div class="mb-16">
             <div class="flex items-center justify-between mb-8">
                 <h2 class="text-2xl font-bold text-slate-900 flex items-center">
@@ -128,7 +195,7 @@
             <div id="instituteGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
                 <!-- Card 0: PIETC (Highlighted) -->
-                <div class="institute-card rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-amber-400 bg-gradient-to-br from-white via-amber-50 to-orange-50 flex flex-col h-full fade-in relative transform hover:-translate-y-1 scale-105 z-10" data-name="PIETC Practical Import Export Training Center" data-location="Adajan Pal Road Marvella">
+                <div class="institute-card rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 border-4 border-amber-400 bg-gradient-to-br from-white via-amber-50 to-orange-50 flex flex-col h-full fade-in relative transform hover:-translate-y-1 scale-105 z-10" data-name="PIETC Practical Import Export Training Center shipment guarantee first 10 live transactions hand-holding support" data-location="Adajan Pal Road Marvella">
                     
                     <!-- Highlight Badge -->
                     <div class="absolute -top-4 -left-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white text-xs font-black px-4 py-2 rounded-lg shadow-xl flex items-center transform -rotate-2 z-20 animate-pulse">
@@ -156,9 +223,19 @@
                             </a>
                         </div>
                         
-                        <p class="text-slate-700 text-sm mb-4 leading-relaxed line-clamp-3 hover:line-clamp-none transition-all font-medium">
-                            PIETC is highly renowned for its 100% practical execution rather than just theory. They stand out by offering a strict <strong>Shipment Guarantee</strong>—providing hand-holding support for your first 10 live transactions. Students engage in live document practice, real-deal simulations, port/CFS visits, and hands-on international buyer finding labs with lifetime assistance.
+                        <p class="text-slate-700 text-sm mb-4 leading-relaxed font-medium">
+                            PIETC is highly renowned for its 100% practical execution rather than just theory. Students engage in live document practice, real-deal simulations, port/CFS visits, and hands-on international buyer finding labs with lifetime assistance.
                         </p>
+
+                        <!-- Added Specific Highlight Fact for PIETC -->
+                        <div class="bg-gradient-to-r from-amber-500/15 to-orange-500/10 border-l-4 border-amber-500 p-3.5 my-3 rounded-r-xl shadow-inner">
+                            <h4 class="text-xs font-black text-amber-900 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                <i class="fas fa-circle-check text-amber-600"></i> Strict Shipment Guarantee
+                            </h4>
+                            <p class="text-xs text-amber-950 font-medium leading-relaxed">
+                                Explicitly markets a strict Shipment Guarantee with hand-holding support for your <strong>first 10 live transactions</strong>, ensuring you don't just learn theory but actually ship goods.
+                            </p>
+                        </div>
                         
                         <div class="mt-auto pt-4 border-t border-amber-200/70">
                             <h4 class="text-xs font-bold text-slate-800 mb-2 uppercase tracking-wide flex items-center">
@@ -184,7 +261,7 @@
                                     <i class="fas fa-shoe-prints text-indigo-500 mr-2"></i> My Visit Pros & Cons
                                 </h4>
                                 <div class="grid grid-cols-2 gap-3">
-                                    <textarea id="user-pros-pietc" rows="2" class="w-full text-xs p-2 rounded-lg border border-emerald-300 bg-white/90 focus:bg-white focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all resize-none save-visit-notes placeholder-emerald-700/50 shadow-inner" placeholder="+ Add pros found on visit..."></textarea>
+                                    <textarea id="user-pros-pietc" rows="2" class="w-full text-xs p-2 rounded-lg border border-emerald-300 bg-white/90 focus:bg-white focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 transition-all resize-none save-visit-notes placeholder-emerald-700/50 shadow-inner animate-pulse focus:animate-none" placeholder="+ Add pros found on visit..."></textarea>
                                     <textarea id="user-cons-pietc" rows="2" class="w-full text-xs p-2 rounded-lg border border-rose-300 bg-white/90 focus:bg-white focus:ring-1 focus:ring-rose-500 focus:border-rose-500 transition-all resize-none save-visit-notes placeholder-rose-700/50 shadow-inner" placeholder="- Add cons found on visit..."></textarea>
                                 </div>
                             </div>
@@ -212,8 +289,8 @@
                 </div>
 
                 <!-- Card 1: Varni Exim -->
-                <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-2 border-slate-200 flex flex-col h-full fade-in relative" data-name="Varni Exim Institute" data-location="Parvat Patia Punagam">
-                    <div class="absolute top-4 right-4 z-10 flex items-center gap-2 bg-white/80 backdrop-blur px-2 py-1 rounded-lg">
+                <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-2 border-indigo-200 flex flex-col h-full fade-in relative" data-name="Varni Exim Institute varnieximsurat.com first 10 trades free support lifetime helpdesk support" data-location="Parvat Patia Punagam">
+                    <div class="absolute top-4 right-4 z-10 flex items-center gap-2 bg-white/80 backdrop-blur px-2 py-1 rounded-lg border border-indigo-100">
                         <label for="check-varni" class="text-xs text-slate-500 font-semibold cursor-pointer select-none">Shortlist</label>
                         <input type="checkbox" id="check-varni" class="shortlist-checkbox save-state-cb" data-target-card="varni">
                     </div>
@@ -222,13 +299,31 @@
                             <i class="fas fa-globe-asia"></i>
                         </div>
                         <h3 class="text-xl font-bold text-slate-900 mb-3 pr-20">Varni Exim Institute</h3>
-                        <div class="flex items-start text-sm text-slate-600 mb-4 bg-slate-50 p-3 rounded-lg border border-slate-100">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-red-500"></i>
-                            <p>409/410, Polaris Mall, Parvat Patia, Surat - 395010</p>
+                        <div class="flex flex-col gap-2 mb-4">
+                            <div class="flex items-start text-sm text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-red-500"></i>
+                                <p>409/410, Polaris Mall, Parvat Patia, Surat - 395010</p>
+                            </div>
+                            <div class="flex gap-2.5">
+                                <a href="http://varnieximsurat.com/" target="_blank" class="flex items-center text-xs text-blue-700 hover:text-blue-600 font-bold ml-1 transition-colors">
+                                    <i class="fas fa-external-link-alt mr-1.5"></i> Visit varnieximsurat.com
+                                </a>
+                            </div>
                         </div>
-                        <p class="text-slate-600 text-sm mb-4 leading-relaxed line-clamp-3 hover:line-clamp-none transition-all">
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
                             Specializes in practical execution, covering product finalization, export documentation, and payment structures. Also offers IEC and GST services.
                         </p>
+
+                        <!-- Added Specific Highlight Fact for Varni Exim -->
+                        <div class="bg-indigo-50/70 border-l-4 border-indigo-500 p-3.5 my-3 rounded-r-xl">
+                            <h4 class="text-xs font-black text-indigo-950 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                <i class="fas fa-link text-indigo-600"></i> Verified Support Promise
+                            </h4>
+                            <p class="text-xs text-indigo-950 font-medium leading-relaxed">
+                                Their official website explicitly states: <strong>"Free support for your first 10 trades and lifetime helpdesk support"</strong> offering a closely matched security net.
+                            </p>
+                        </div>
+
                         <div class="mt-auto pt-4 border-t border-slate-100">
                             <h4 class="text-xs font-bold text-slate-800 mb-2 uppercase tracking-wide flex items-center">
                                 <i class="fas fa-balance-scale text-brand-500 mr-2"></i> Pros & Cons
@@ -279,7 +374,7 @@
                 </div>
 
                 <!-- Card 2: iiiEM -->
-                <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-2 border-slate-200 flex flex-col h-full fade-in relative" style="animation-delay: 0.1s;" data-name="iiiEM International Institute of Import Export Management" data-location="Nanpura Athwa Gate">
+                <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-2 border-slate-200 flex flex-col h-full fade-in relative" style="animation-delay: 0.1s;" data-name="iiiEM International Institute of Import Export Management business incubation setup support no guarantee" data-location="Nanpura Athwa Gate">
                     <div class="absolute top-4 right-4 z-10 flex items-center gap-2 bg-white/80 backdrop-blur px-2 py-1 rounded-lg">
                         <label for="check-iiiem" class="text-xs text-slate-500 font-semibold cursor-pointer select-none">Shortlist</label>
                         <input type="checkbox" id="check-iiiem" class="shortlist-checkbox save-state-cb" data-target-card="iiiem">
@@ -293,9 +388,20 @@
                             <i class="fas fa-map-marker-alt mt-1 mr-3 text-red-500"></i>
                             <p>Tirupati Plaza, B Wing, Nanpura, Surat - 395001</p>
                         </div>
-                        <p class="text-slate-600 text-sm mb-4 leading-relaxed line-clamp-3 hover:line-clamp-none transition-all">
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
                             Prominent autonomous institution delivering academic and field-level training. Covers CHA regulations, marketing, and business incubation.
                         </p>
+
+                        <!-- Added Specific Highlight Fact for iiiEM -->
+                        <div class="bg-slate-100 border-l-4 border-slate-500 p-3.5 my-3 rounded-r-xl">
+                            <h4 class="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                <i class="fas fa-circle-nodes text-slate-500"></i> Business Incubation Model
+                            </h4>
+                            <p class="text-xs text-slate-600 font-medium leading-relaxed">
+                                Offers extensive <strong>Business Incubation</strong> and <strong>Setup Support</strong>, though they do not explicitly use the term "Guarantee" for shipments.
+                            </p>
+                        </div>
+
                         <div class="mt-auto pt-4 border-t border-slate-100">
                             <h4 class="text-xs font-bold text-slate-800 mb-2 uppercase tracking-wide flex items-center">
                                 <i class="fas fa-balance-scale text-brand-500 mr-2"></i> Pros & Cons
@@ -370,8 +476,8 @@
                             <div class="grid grid-cols-2 gap-3 mb-4">
                                 <div class="bg-emerald-50/70 p-2.5 rounded-lg border border-emerald-100">
                                     <ul class="text-xs text-emerald-800 space-y-1.5 font-medium">
-                                        <li class="flex items-start"><i class="fas fa-check text-emerald-500 mt-0.5 mr-1.5 shrink-0"></i> Budget-friendly</li>
                                         <li class="flex items-start"><i class="fas fa-check text-emerald-500 mt-0.5 mr-1.5 shrink-0"></i> Beginner focused</li>
+                                        <li class="flex items-start"><i class="fas fa-check text-emerald-500 mt-0.5 mr-1.5 shrink-0"></i> Product selection</li>
                                     </ul>
                                 </div>
                                 <div class="bg-rose-50/70 p-2.5 rounded-lg border border-rose-100">
@@ -557,7 +663,6 @@
                     </div>
                 </div>
 
-                
                 <!-- Card 6: Kshemkari -->
                 <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-2 border-slate-200 flex flex-col h-full fade-in relative" style="animation-delay: 0.5s;" data-name="Kshemkari Export Import Academy" data-location="Bombay Market">
                     <div class="absolute top-4 right-4 z-10 flex items-center gap-2 bg-white/80 backdrop-blur px-2 py-1 rounded-lg">
@@ -827,7 +932,7 @@
                 </div>
 
                 <!-- Card 10: GFE Business -->
-                <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-2 border-slate-200 flex flex-col h-full fade-in relative" style="animation-delay: 0.9s;" data-name="GFE Business" data-location="Vesu">
+                <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-2 border-slate-200 flex flex-col h-full fade-in relative" style="animation-delay: 0.9s;" data-name="GFE Business Setup Support no guarantee" data-location="Vesu">
                     <div class="absolute top-4 right-4 z-10 flex items-center gap-2 bg-white/80 backdrop-blur px-2 py-1 rounded-lg">
                         <label for="check-gfe" class="text-xs text-slate-500 font-semibold cursor-pointer select-none">Shortlist</label>
                         <input type="checkbox" id="check-gfe" class="shortlist-checkbox save-state-cb" data-target-card="gfe">
@@ -841,9 +946,20 @@
                             <i class="fas fa-map-marker-alt mt-1 mr-3 text-red-500"></i>
                             <p>Vesu, Surat (Contact for exact block)</p>
                         </div>
-                        <p class="text-slate-600 text-sm mb-4 leading-relaxed line-clamp-3 hover:line-clamp-none transition-all">
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
                             Provides focused corporate training and individual consulting for starting an export business, including IEC registration and port procedures.
                         </p>
+
+                        <!-- Added Specific Highlight Fact for GFE Business -->
+                        <div class="bg-slate-100 border-l-4 border-slate-500 p-3.5 my-3 rounded-r-xl">
+                            <h4 class="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                <i class="fas fa-screwdriver-wrench text-slate-500"></i> Setup Support Model
+                            </h4>
+                            <p class="text-xs text-slate-600 font-medium leading-relaxed">
+                                Delivers complete corporate consultancies and <strong>Setup Support</strong>, but does not explicitly use the term "Guarantee" for shipments.
+                            </p>
+                        </div>
+
                         <div class="mt-auto pt-4 border-t border-slate-100">
                             <h4 class="text-xs font-bold text-slate-800 mb-2 uppercase tracking-wide flex items-center">
                                 <i class="fas fa-balance-scale text-brand-500 mr-2"></i> Pros & Cons
@@ -892,7 +1008,6 @@
                         </a>
                     </div>
                 </div>
-
 
                 <!-- Card 11: Piar International -->
                 <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-2 border-slate-200 flex flex-col h-full fade-in relative" style="animation-delay: 1.0s;" data-name="Piar International" data-location="Vesu VIP Road">
@@ -1163,13 +1278,13 @@
                 </div>
 
                 <!-- Card 15: 10X Exports -->
-                <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-2 border-slate-200 flex flex-col h-full fade-in relative" style="animation-delay: 1.4s;" data-name="10X Exports GIFT Training" data-location="Surat">
-                    <div class="absolute top-4 right-4 z-10 flex items-center gap-2 bg-white/80 backdrop-blur px-2 py-1 rounded-lg">
+                <div class="institute-card bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-2 border-rose-200 flex flex-col h-full fade-in relative" style="animation-delay: 1.4s;" data-name="10X Exports GIFT Training merchant exporter integration program" data-location="Surat">
+                    <div class="absolute top-4 right-4 z-10 flex items-center gap-2 bg-white/80 backdrop-blur px-2 py-1 rounded-lg border border-rose-100">
                         <label for="check-10x" class="text-xs text-slate-500 font-semibold cursor-pointer select-none">Shortlist</label>
                         <input type="checkbox" id="check-10x" class="shortlist-checkbox save-state-cb" data-target-card="10x">
                     </div>
                     <div class="p-6 flex-grow flex flex-col">
-                        <div class="w-12 h-12 bg-red-50 text-red-600 rounded-lg flex items-center justify-center text-xl mb-4">
+                        <div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-lg flex items-center justify-center text-xl mb-4 border border-rose-100 shadow-sm">
                             <i class="fas fa-box-open"></i>
                         </div>
                         <h3 class="text-xl font-bold text-slate-900 mb-3 pr-20">10X Exports (GIFT)</h3>
@@ -1177,9 +1292,20 @@
                             <i class="fas fa-map-marker-alt mt-1 mr-3 text-red-500"></i>
                             <p>Surat (Contact for Batch Location)</p>
                         </div>
-                        <p class="text-slate-600 text-sm mb-4 leading-relaxed line-clamp-3 hover:line-clamp-none transition-all">
-                            Provides the GIFT (Global Import Export Training) program. Focuses on bringing verified buyers, trade document templates, and product sourcing strategies for fast-tracking export ventures.
+                        <p class="text-slate-600 text-sm mb-4 leading-relaxed">
+                            Provides the GIFT (Global Import Export Training) program. Focuses on bringing verified buyers, trade document templates, and product sourcing strategies.
                         </p>
+
+                        <!-- Added Specific Highlight Fact for 10X Exports -->
+                        <div class="bg-rose-50 border-l-4 border-rose-500 p-3.5 my-3 rounded-r-xl">
+                            <h4 class="text-xs font-black text-rose-950 uppercase tracking-wider flex items-center gap-1.5 mb-1">
+                                <i class="fas fa-hands-holding-child text-rose-600"></i> GIFT Integration Program
+                            </h4>
+                            <p class="text-xs text-rose-950 font-medium leading-relaxed">
+                                Their model is slightly different; they act as a <strong>merchant exporter</strong> and offer the <strong>"GIFT Program,"</strong> which integrates students directly into their live export process rather than just teaching them theory.
+                            </p>
+                        </div>
+
                         <div class="mt-auto pt-4 border-t border-slate-100">
                             <h4 class="text-xs font-bold text-slate-800 mb-2 uppercase tracking-wide flex items-center">
                                 <i class="fas fa-balance-scale text-brand-500 mr-2"></i> Pros & Cons
@@ -1414,7 +1540,7 @@
 
     <footer class="bg-slate-900 text-slate-400 py-8 text-center mt-auto">
         <div class="max-w-7xl mx-auto px-4">
-            <p class="text-sm">&copy; 2024 Trade Education Directory. Data curated for informational purposes.</p>
+            <p class="text-sm">&copy; 2026 Trade Education Directory. Data curated for informational purposes.</p>
             <p class="text-xs mt-2 text-slate-500">Course fees and schedules are subject to change. Please contact the respective institutes for exact details.</p>
         </div>
     </footer>
