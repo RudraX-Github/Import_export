@@ -4,137 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Export Report on Medical Disposable Products from India (2020–2025)</title>
+    
     <style>
         :root {
-            --primary-color: #2b5797;
-            --secondary-color: #0078d7;
-            --accent-color: #e1f0fa;
-            --text-main: #333333;
-            --text-muted: #555555;
-            --bg-body: #f4f7f6;
-            --bg-container: #ffffff;
-            --border-color: #e0e0e0;
+            --bg-main: #060913;
+            --bg-panel: #0d1323;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --accent-cyan: #00f0ff;
+            --accent-purple: #8b5cf6;
+            --border-color: rgba(0, 240, 255, 0.15);
         }
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.7;
-            color: var(--text-main);
-            background-color: var(--bg-body);
+            color: var(--text-primary);
+            background-color: var(--bg-main);
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
+            /* Geometric dark background pattern */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.04), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.04), transparent 25%);
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: var(--bg-container);
-            padding: 50px;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            background: var(--bg-panel);
+            padding: 60px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 
+                        inset 0 0 20px rgba(0, 240, 255, 0.02);
+            /* Midnight Trade Route Geometric Grid */
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            position: relative;
+        }
+        
+        /* Glowing Accent Line */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            box-shadow: 0 0 10px var(--accent-cyan);
         }
 
         header {
             text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 4px solid var(--primary-color);
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         h1 {
-            color: var(--primary-color);
-            font-size: 2.2em;
+            color: var(--text-primary);
+            font-size: 2.4em;
             margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(226, 232, 240, 0.2);
+            letter-spacing: 1px;
         }
 
         h2 {
-            color: var(--secondary-color);
-            font-size: 1.6em;
-            margin-top: 40px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--accent-color);
+            color: var(--accent-cyan);
+            font-size: 1.7em;
+            margin-top: 50px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+            display: inline-block;
         }
 
         h3 {
-            color: var(--primary-color);
-            font-size: 1.25em;
-            margin-top: 25px;
+            color: var(--accent-purple);
+            font-size: 1.3em;
+            margin-top: 30px;
+            letter-spacing: 0.5px;
         }
 
         p {
             margin-bottom: 18px;
-            color: var(--text-muted);
+            color: var(--text-secondary);
             text-align: justify;
+            font-size: 1.05em;
         }
 
         .highlight-box {
-            background-color: var(--accent-color);
-            border-left: 5px solid var(--secondary-color);
-            padding: 20px;
-            margin: 25px 0;
+            background-color: rgba(139, 92, 246, 0.05);
+            border-left: 4px solid var(--accent-purple);
+            padding: 25px;
+            margin: 30px 0;
             border-radius: 0 8px 8px 0;
-            font-weight: 500;
-            color: #1a457b;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 30px 0;
+            margin: 35px 0;
             font-size: 0.95em;
-            background-color: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            background-color: rgba(0, 0, 0, 0.2);
             border-radius: 8px;
             overflow: hidden;
+            border: 1px solid var(--border-color);
         }
 
         th, td {
-            padding: 15px;
-            border: 1px solid var(--border-color);
+            padding: 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             text-align: left;
         }
 
         th {
-            background-color: var(--primary-color);
-            color: #ffffff;
+            background-color: rgba(0, 240, 255, 0.08);
+            color: var(--accent-cyan);
             font-weight: 600;
             text-transform: uppercase;
             font-size: 0.85em;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
-        tr:nth-child(even) {
-            background-color: #f9fbfd;
+        tr:last-child td {
+            border-bottom: none;
         }
 
         tr:hover {
-            background-color: #f1f7fb;
-            transition: background-color 0.2s ease;
+            background-color: rgba(139, 92, 246, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        
+        td {
+            color: var(--text-primary);
         }
 
         ul {
             margin-bottom: 20px;
             padding-left: 25px;
-            color: var(--text-muted);
+            color: var(--text-secondary);
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .company-list strong {
-            color: var(--primary-color);
+            color: var(--accent-cyan);
+        }
+        
+        .note {
+            font-style: italic;
+            color: #64748b;
+            font-size: 0.9em;
+            margin-top: -15px;
+            margin-bottom: 20px;
+            display: block;
         }
 
         @media (max-width: 768px) {
             .container {
-                padding: 25px;
+                padding: 30px;
             }
             th, td {
-                padding: 10px;
-            }
-            table {
-                font-size: 0.85em;
+                padding: 12px;
             }
         }
     </style>
@@ -144,7 +183,7 @@
 <div class="container">
     <header>
         <h1>Export Report on Medical Disposable Products from India</h1>
-        <p style="text-align: center; font-size: 1.1em; color: var(--secondary-color); font-weight: bold;">(2020–2025)</p>
+        <p style="text-align: center; font-size: 1.2em; color: var(--accent-cyan); font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">(2020–2025)</p>
     </header>
 
     <section>
@@ -169,66 +208,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>30051010</td>
-                    <td>Adhesive dressings and other articles having an adhesive layer</td>
-                    <td>Wound Management</td>
-                </tr>
-                <tr>
-                    <td>30051020 / 90</td>
-                    <td>Cotton wool, medicated or impregnated; other adhesive dressings</td>
-                    <td>Wound Management</td>
-                </tr>
-                <tr>
-                    <td>30059010 / 20</td>
-                    <td>Wadding, gauze, bandages, and similar articles (excluding adhesive)</td>
-                    <td>Wound Management</td>
-                </tr>
-                <tr>
-                    <td>30065000</td>
-                    <td>First-aid boxes and kits</td>
-                    <td>Consumables</td>
-                </tr>
-                <tr>
-                    <td>39241010</td>
-                    <td>Insulated tableware and kitchenware of plastics (used in medical settings)</td>
-                    <td>Plastic Disposables</td>
-                </tr>
-                <tr>
-                    <td>401511</td>
-                    <td>Surgical gloves of vulcanized rubber (other than hard rubber)</td>
-                    <td>Barrier Protection</td>
-                </tr>
-                <tr>
-                    <td>401519</td>
-                    <td>Other medical/examination gloves of vulcanized rubber</td>
-                    <td>Barrier Protection</td>
-                </tr>
-                <tr>
-                    <td>90183100</td>
-                    <td>Syringes, with or without needles</td>
-                    <td>Vascular Access / Disposables</td>
-                </tr>
-                <tr>
-                    <td>90183210 / 20 / 30</td>
-                    <td>Tubular metal needles, needles for sutures, and hollow needles</td>
-                    <td>Vascular Access / Disposables</td>
-                </tr>
-                <tr>
-                    <td>90183910 / 20 / 30</td>
-                    <td>Catheters, cannulae, perfusion sets, and similar instruments</td>
-                    <td>Vascular Access / Disposables</td>
-                </tr>
-                <tr>
-                    <td>90200000</td>
-                    <td>Other breathing appliances and gas masks</td>
-                    <td>Respiratory Consumables</td>
-                </tr>
-                <tr>
-                    <td>94029010 / 20</td>
-                    <td>Operating tables, examination tables, and hospital beds (accessories)</td>
-                    <td>Medical Furniture</td>
-                </tr>
+                <tr><td>30051010</td><td>Adhesive dressings and other articles having an adhesive layer</td><td>Wound Management</td></tr>
+                <tr><td>30051020 / 90</td><td>Cotton wool, medicated or impregnated; other adhesive dressings</td><td>Wound Management</td></tr>
+                <tr><td>30059010 / 20</td><td>Wadding, gauze, bandages, and similar articles (excluding adhesive)</td><td>Wound Management</td></tr>
+                <tr><td>30065000</td><td>First-aid boxes and kits</td><td>Consumables</td></tr>
+                <tr><td>39241010</td><td>Insulated tableware and kitchenware of plastics (used in medical settings)</td><td>Plastic Disposables</td></tr>
+                <tr><td>401511</td><td>Surgical gloves of vulcanized rubber (other than hard rubber)</td><td>Barrier Protection</td></tr>
+                <tr><td>401519</td><td>Other medical/examination gloves of vulcanized rubber</td><td>Barrier Protection</td></tr>
+                <tr><td>90183100</td><td>Syringes, with or without needles</td><td>Vascular Access / Disposables</td></tr>
+                <tr><td>90183210 / 20 / 30</td><td>Tubular metal needles, needles for sutures, and hollow needles</td><td>Vascular Access / Disposables</td></tr>
+                <tr><td>90183910 / 20 / 30</td><td>Catheters, cannulae, perfusion sets, and similar instruments</td><td>Vascular Access / Disposables</td></tr>
+                <tr><td>90200000</td><td>Other breathing appliances and gas masks</td><td>Respiratory Consumables</td></tr>
+                <tr><td>94029010 / 20</td><td>Operating tables, examination tables, and hospital beds (accessories)</td><td>Medical Furniture</td></tr>
             </tbody>
         </table>
 
@@ -240,8 +231,7 @@
         <p>An empirical assessment of India's medical device exports over the past half-decade reveals a structural shift. The sector has transitioned from fulfilling domestic shortfalls to aggressively capturing global market share. The consumables and disposables segment has consistently accounted for nearly half of the nation's total medical device export value.</p>
         
         <h3>Aggregated Export Performance</h3>
-        <p>The year-over-year performance data, as recorded by the Directorate General of Commercial Intelligence and Statistics (DGCIS), demonstrates a sustained growth trajectory across the broader category:</p>
-
+        
         <table>
             <thead>
                 <tr>
@@ -252,97 +242,63 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>FY 2020-21</td>
-                    <td>2,532</td>
-                    <td>1,290</td>
-                    <td>50.9%</td>
-                </tr>
-                <tr>
-                    <td>FY 2021-22</td>
-                    <td>2,923</td>
-                    <td>1,378</td>
-                    <td>47.1%</td>
-                </tr>
-                <tr>
-                    <td>FY 2022-23</td>
-                    <td>3,391</td>
-                    <td>1,605</td>
-                    <td>47.3%</td>
-                </tr>
-                <tr>
-                    <td>FY 2023-24</td>
-                    <td>3,785</td>
-                    <td>1,752</td>
-                    <td>46.3%</td>
-                </tr>
-                <tr>
-                    <td>FY 2024-25 (up to Sept 2024)</td>
-                    <td>1,947</td>
-                    <td>917</td>
-                    <td>47.1%</td>
-                </tr>
+                <tr><td>FY 2020-21</td><td>2,532</td><td>1,290</td><td>50.9%</td></tr>
+                <tr><td>FY 2021-22</td><td>2,923</td><td>1,378</td><td>47.1%</td></tr>
+                <tr><td>FY 2022-23</td><td>3,391</td><td>1,605</td><td>47.3%</td></tr>
+                <tr><td>FY 2023-24</td><td>3,785</td><td>1,752</td><td>46.3%</td></tr>
+                <tr><td>FY 2024-25 (up to Sept 2024)</td><td>1,947</td><td>917</td><td>47.1%</td></tr>
             </tbody>
         </table>
 
-        <p>The data indicates that the export of consumables and disposables grew by approximately 6.82% from FY21 to FY22, followed by more aggressive double-digit expansions in subsequent years, culminating in a 35.8% overall increase from FY21 to FY24.</p>
+        <h3>Top 10 Medical Disposable Products by Highest Export Value (FY 2024-25)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>HS Code</th>
+                    <th>Product Description</th>
+                    <th>Export Value (₹ Crore)</th>
+                    <th>TradeStat Source</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>90183990</td><td>Syringes, needles, catheters (Other)</td><td>2,335.00</td><td></td></tr>
+                <tr><td>2</td><td>90183930</td><td>Cannulae</td><td>1,275.00</td><td></td></tr>
+                <tr><td>3</td><td>90183100</td><td>Syringes, with or without needles</td><td>481.58</td><td></td></tr>
+                <tr><td>4</td><td>90183910</td><td>Catheters and the like</td><td>451.01</td><td></td></tr>
+                <tr><td>5</td><td>90183210</td><td>Tubular metal needles for sutures</td><td>268.38</td><td></td></tr>
+                <tr><td>6</td><td>30059090</td><td>Medical wadding, gauze, and bandages</td><td>236.19</td><td></td></tr>
+                <tr><td>7</td><td>90189032</td><td>Blood transfusion apparatus</td><td>-</td><td>Ranked #10 in Ch. 9018</td></tr>
+                <tr><td>8</td><td>90189023</td><td>Renal Dialysis Equipment (Consumables)</td><td>33.28</td><td></td></tr>
+                <tr><td>9</td><td>90189024</td><td>Surgical tools (Chisels, gauges, cutters)</td><td>3.17</td><td></td></tr>
+                <tr><td>10</td><td>90189025</td><td>Surgical tools (Retractors, spatulas, probes)</td><td>2.65</td><td></td></tr>
+            </tbody>
+        </table>
+        <span class="note">(Note: Official TradeStat EIDB primary reporting is conducted via absolute export value (₹ Crore); explicit volume metrics are aggregated into value tranches.)</span>
 
-        <h3>Detailed Export Data by Specific HS Code (in ₹ Crore)</h3>
-        <p>To provide accurate structural insight into the specific commodities driving this growth, the following table presents verifiable trade statistics extracted directly from the Ministry of Commerce & Industry / TradeStat EIDB for prominent medical disposable HS codes across the complete five-year timeframe:</p>
-
+        <h3>Detailed 5-Year Export Data by Specific HS Code (in ₹ Crore)</h3>
         <table>
             <thead>
                 <tr>
                     <th>HS Code</th>
                     <th>Product Description</th>
-                    <th>FY 2020-21 (₹ Cr)</th>
-                    <th>FY 2021-22 (₹ Cr)</th>
-                    <th>FY 2022-23 (₹ Cr)</th>
-                    <th>FY 2023-24 (₹ Cr)</th>
-                    <th>FY 2024-25 (₹ Cr)</th>
+                    <th>FY 2020-21</th>
+                    <th>FY 2021-22</th>
+                    <th>FY 2022-23</th>
+                    <th>FY 2023-24</th>
+                    <th>FY 2024-25</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>90183100</td>
-                    <td>Syringes, with or without needles</td>
-                    <td>337.91</td>
-                    <td>413.04</td>
-                    <td>446.99</td>
-                    <td>464.49</td>
-                    <td>481.58</td>
-                </tr>
-                <tr>
-                    <td>90183910</td>
-                    <td>Catheters and the like</td>
-                    <td>219.96</td>
-                    <td>260.23</td>
-                    <td>370.53</td>
-                    <td>387.16</td>
-                    <td>451.01</td>
-                </tr>
-                <tr>
-                    <td>90183210</td>
-                    <td>Tubular metal needles for sutures</td>
-                    <td>123.91</td>
-                    <td>127.09</td>
-                    <td>182.94</td>
-                    <td>264.34</td>
-                    <td>268.38</td>
-                </tr>
-                <tr>
-                    <td>30059090</td>
-                    <td>Medical wadding, gauze, and bandages</td>
-                    <td>208.81</td>
-                    <td>156.34</td>
-                    <td>256.48</td>
-                    <td>216.02</td>
-                    <td>236.19</td>
-                </tr>
+                <tr><td>90183100</td><td>Syringes, with or without needles</td><td>337.91</td><td>413.04</td><td>446.99</td><td>464.49</td><td>481.58</td></tr>
+                <tr><td>90183910</td><td>Catheters and the like</td><td>219.96</td><td>260.23</td><td>370.53</td><td>387.16</td><td>451.01</td></tr>
+                <tr><td>90183210</td><td>Tubular metal needles for sutures</td><td>123.91</td><td>127.09</td><td>182.94</td><td>264.34</td><td>268.38</td></tr>
+                <tr><td>30059090</td><td>Medical wadding, gauze, and bandages</td><td>208.81</td><td>156.34</td><td>256.48</td><td>216.02</td><td>236.19</td></tr>
+                <tr><td>90189023</td><td>Renal Dialysis Equipment (Consumables)</td><td>15.73</td><td>19.83</td><td>20.93</td><td>22.60</td><td>33.28</td></tr>
+                <tr><td>90189024</td><td>Surgical tools (Chisels, gauges, cutters)</td><td>1.64</td><td>7.14</td><td>2.82</td><td>2.08</td><td>3.17</td></tr>
+                <tr><td>90189025</td><td>Surgical tools (Retractors, spatulas, probes)</td><td>1.35</td><td>1.80</td><td>2.48</td><td>1.97</td><td>2.65</td></tr>
             </tbody>
         </table>
-
-        <p>The tabular data reveals a robust compound annual growth trajectory in basic vascular and disposable devices. Most notably, the export of Syringes (HS 90183100) increased continuously every year, demonstrating the sector's entrenched manufacturing capacity. Similarly, Catheters (HS 90183910) more than doubled their export value over the five-year period.</p>
 
         <h3>Macroeconomic Growth Drivers</h3>
         <p>Several macroeconomic and structural mechanisms have driven this growth. First, the COVID-19 pandemic catalyzed an unprecedented global demand for barrier protection and infection control disposables. Following the acute phase of the pandemic, global healthcare systems and government procurement agencies structurally increased their baseline inventory requirements for items such as blood collection tubes (vacutainers), syringes, and IV sets to mitigate future supply chain shocks. Second, the "Make in India" initiative and the global "China Plus One" diversification strategy prompted international buyers to seek alternative, high-volume manufacturing hubs. Indian manufacturers were perfectly positioned to absorb this demand, offering European-equivalent quality at a 30% to 50% price discount compared to Western manufacturers.</p>
@@ -389,8 +345,7 @@
 
     <section>
         <h2>Comprehensive Corporate Landscape: Exporters, Companies, and Manufacturers</h2>
-        <p>The export trade in medical disposables is driven by a complex ecosystem of indigenous conglomerates, rapidly scaling MSMEs, and entrenched multinational corporations. Based on extensive industry data, the following entities represent the totality of the major participants orchestrating this trade.</p>
-
+        
         <h3>Indigenous Market Leaders</h3>
         <ul class="company-list">
             <li><strong>Poly Medicure Ltd. (Polymed):</strong> Headquartered in Faridabad, Poly Medicure is the vanguard of India's medical disposable exports. Evolving from a small MSME in 1995 to a publicly listed entity with a market capitalization exceeding $2.3 billion, Polymed is currently the largest exporter of consumable medical devices from India, shipping to over 110 countries. The company derives approximately 70% of its revenue from international markets, with the European Union accounting for 40% of its total export sales. Operating five domestic manufacturing plants (with four more under construction) and international subsidiaries in Italy, China, and Egypt, Polymed produces over 1.8 billion units annually. The company boasts a portfolio of over 200 product categories and 6,700 SKUs, covering infusion therapy, blood management, renal care, and oncology. Crucially, Polymed is shifting up the complexity ladder, as evidenced by its acquisitions of Plan1 Health (Italy) for vascular access technology and Citieffe (orthopedics).</li>
@@ -418,8 +373,7 @@
 
     <section>
         <h2>Geopolitical Disruptions: Impact of Global Conflicts on Trade Flows</h2>
-        <p>The assumption that medical supply chains are insulated from geopolitical volatility has been entirely dismantled over the past five years. Indian exporters of medical disposables are currently navigating severe disruptions stemming from conflicts in Europe and escalating tensions in the Middle East, which directly threaten market access and cost structures.</p>
-
+        
         <h3>The European Conflict (Ukraine) and Supply Chain Realignments</h3>
         <p>The prolonged war in Ukraine has exerted a compounding effect on global supply chains. The conflict resulted in severe energy market volatility across Europe, which indirectly impacted the operational costs of European medical device manufacturers. While this theoretically presented an opportunity for Indian exporters to capture market share from capacity-constrained European firms, the reality has been far more complex. The conflict exacerbated existing vulnerabilities left by the COVID-19 pandemic, leading to widespread shortages of specialized components and extreme fluctuations in global petrochemical prices.</p>
 
@@ -433,13 +387,12 @@
         </ul>
 
         <h3>Southeast Asian Market Dynamics</h3>
-        <p><em>(Note: While geopolitical tensions directly impact Europe and the Middle East, the primary challenge in Southeast Asia is economic competition rather than armed conflict).</em></p>
+        <span class="note">(Note: While geopolitical tensions directly impact Europe and the Middle East, the primary challenge in Southeast Asia is economic competition rather than armed conflict).</span>
         <p>In Southeast Asia, Indian exporters face aggressive trade competition. The market access in this region is dictated by tender pricing models and regulatory fragmentation across entities like the NMPA (China) and PMDA (Japan). Indian manufacturers must continually innovate in automation to outbid Chinese disposable manufacturers and Malaysian rubber glove cartels, who aggressively defend their regional market share through volume dumping and predatory pricing structures.</p>
     </section>
 
     <section>
         <h2>Regulatory Paradigms and Compliance Barriers</h2>
-        <p>In the international medical device trade, regulatory compliance is the ultimate barrier to entry. Over the last five years, regulatory frameworks in the two largest export destinations—the European Union and the United States—have undergone massive transformations, placing profound administrative and financial burdens on Indian exporters.</p>
 
         <h3>The European Union Medical Device Regulation (EU MDR 2017/745)</h3>
         <p>The transition from the legacy Medical Device Directive (MDD 93/42/EEC) to the new EU MDR 2017/745 represents the most disruptive regulatory event in recent history. The MDR aims to drastically improve patient safety but does so by imposing stringent new requirements on all manufacturers, including those producing basic disposables.</p>
@@ -462,7 +415,6 @@
 
     <section>
         <h2>Domestic Policy Catalysts and Structural Challenges</h2>
-        <p>Recognizing the vulnerability of a high import dependency and the massive economic potential of medical device exports, the Government of India has deployed aggressive fiscal policies under the Make in India and Atmanirbhar Bharat (Self-Reliant India) frameworks. However, these positive interventions are severely undermined by legacy taxation flaws.</p>
 
         <h3>Key Growth Drivers: PLI Scheme and Medical Device Parks</h3>
         <p>The most transformative policy intervention is the Production Linked Incentive (PLI) Scheme for Medical Devices, launched with a financial outlay of ₹3,420 crore (approximately $400 million) spanning FY 2020-21 to FY 2027-28. The scheme provides a direct financial incentive of 5% on incremental sales (over a base year) of goods manufactured domestically.</p>
@@ -494,7 +446,7 @@
             </ul>
         </div>
         
-        <p><strong>In conclusion,</strong> India's export trade in medical disposable products has demonstrated robust resilience and exceptional growth over the past five years. By leveraging government production incentives, achieving world-class regulatory compliance, and strategically mitigating raw material supply chain risks, the Indian medical disposables sector is fundamentally well-positioned to transition from a regional volume supplier into a dominant, high-value anchor of the global healthcare supply chain.</p>
+        <p style="margin-top: 30px;"><strong>In conclusion,</strong> India's export trade in medical disposable products has demonstrated robust resilience and exceptional growth over the past five years. By leveraging government production incentives, achieving world-class regulatory compliance, and strategically mitigating raw material supply chain risks, the Indian medical disposables sector is fundamentally well-positioned to transition from a regional volume supplier into a dominant, high-value anchor of the global healthcare supply chain.</p>
     </section>
 </div>
 
