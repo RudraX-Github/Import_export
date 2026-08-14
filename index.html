@@ -63,6 +63,38 @@
             margin-bottom: 50px;
             padding-bottom: 30px;
             border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+        
+        /* Navigation / Tab Button Styles */
+        .nav-tabs {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .tab-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: rgba(0, 240, 255, 0.05);
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            border: 1px solid var(--accent-cyan);
+            border-radius: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+        }
+
+        .tab-btn:hover {
+            background-color: var(--accent-cyan);
+            color: var(--bg-main);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+            transform: translateY(-2px);
         }
 
         h1 {
@@ -184,6 +216,11 @@
     <header>
         <h1>Export Report on Medical Disposable Products from India</h1>
         <p style="text-align: center; font-size: 1.2em; color: var(--accent-cyan); font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">(2020–2025)</p>
+        
+        <!-- Added Navigation Tabs -->
+        <div class="nav-tabs">
+            <a href="https://github.com/RudraX-Github/Import_export/blob/main/Commodity_Catalog_App.html" target="_blank" class="tab-btn">All Products Tab</a>
+        </div>
     </header>
 
     <section>
