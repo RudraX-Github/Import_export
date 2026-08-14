@@ -6,181 +6,176 @@
     <title>Export Report on Medical Disposable Products from India (2020–2025)</title>
     
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
         :root {
-            --bg-main: #060913;
-            --bg-panel: #0d1323;
-            --text-primary: #e2e8f0;
-            --text-secondary: #94a3b8;
-            --accent-cyan: #00f0ff;
-            --accent-purple: #8b5cf6;
-            --border-color: rgba(0, 240, 255, 0.15);
+            --bg-main: #f4f7f9;
+            --bg-panel: #ffffff;
+            --text-main: #2d3748;
+            --text-muted: #4a5568;
+            --primary-color: #0056b3;
+            --secondary-color: #007bff;
+            --accent-bg: #e6f2ff;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.7;
-            color: var(--text-primary);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.8;
+            color: var(--text-main);
             background-color: var(--bg-main);
-            margin: 0;
             padding: 40px 20px;
-            /* Geometric dark background pattern */
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.04), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(0, 240, 255, 0.04), transparent 25%);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             background: var(--bg-panel);
-            padding: 60px;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), 
-                        inset 0 0 20px rgba(0, 240, 255, 0.02);
-            /* Midnight Trade Route Geometric Grid */
-            background-image: 
-                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            position: relative;
-        }
-        
-        /* Glowing Accent Line */
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 40%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
-            box-shadow: 0 0 10px var(--accent-cyan);
+            padding: 50px 70px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border-top: 6px solid var(--primary-color);
         }
 
         header {
             text-align: center;
             margin-bottom: 50px;
             padding-bottom: 30px;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
-        
-        /* Navigation / Tab Button Styles */
-        .nav-tabs {
-            margin-top: 25px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .tab-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: rgba(0, 240, 255, 0.05);
-            color: var(--accent-cyan);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-            border: 1px solid var(--accent-cyan);
-            border-radius: 8px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
-        }
-
-        .tab-btn:hover {
-            background-color: var(--accent-cyan);
-            color: var(--bg-main);
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
-            transform: translateY(-2px);
+            border-bottom: 2px solid var(--border-color);
         }
 
         h1 {
-            color: var(--text-primary);
-            font-size: 2.4em;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(226, 232, 240, 0.2);
-            letter-spacing: 1px;
+            color: #1a202c;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 30px;
+        }
+
+        /* Redesigned Button */
+        .nav-tabs {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2);
+        }
+
+        .btn:hover {
+            background-color: #004494;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 86, 179, 0.3);
+            color: #ffffff;
         }
 
         h2 {
-            color: var(--accent-cyan);
-            font-size: 1.7em;
+            color: #1a202c;
+            font-size: 1.8em;
             margin-top: 50px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(139, 92, 246, 0.3);
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
-            display: inline-block;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent-bg);
+            font-weight: 700;
         }
 
         h3 {
-            color: var(--accent-purple);
+            color: var(--primary-color);
             font-size: 1.3em;
-            margin-top: 30px;
-            letter-spacing: 0.5px;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         p {
-            margin-bottom: 18px;
-            color: var(--text-secondary);
+            margin-bottom: 20px;
+            color: var(--text-muted);
             text-align: justify;
             font-size: 1.05em;
         }
 
         .highlight-box {
-            background-color: rgba(139, 92, 246, 0.05);
-            border-left: 4px solid var(--accent-purple);
-            padding: 25px;
-            margin: 30px 0;
+            background-color: var(--accent-bg);
+            border-left: 5px solid var(--secondary-color);
+            padding: 25px 30px;
+            margin: 35px 0;
             border-radius: 0 8px 8px 0;
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
+            color: #2c5282;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 35px 0;
+            margin: 30px 0;
             font-size: 0.95em;
-            background-color: rgba(0, 0, 0, 0.2);
+            background-color: var(--bg-panel);
             border-radius: 8px;
             overflow: hidden;
+            box-shadow: var(--shadow-sm);
             border: 1px solid var(--border-color);
         }
 
         th, td {
-            padding: 18px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 16px 20px;
             text-align: left;
+            border-bottom: 1px solid var(--border-color);
         }
 
         th {
-            background-color: rgba(0, 240, 255, 0.08);
-            color: var(--accent-cyan);
+            background-color: #f8fafc;
+            color: var(--primary-color);
             font-weight: 600;
             text-transform: uppercase;
             font-size: 0.85em;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         tr:last-child td {
             border-bottom: none;
         }
 
-        tr:hover {
-            background-color: rgba(139, 92, 246, 0.1);
-            transition: background-color 0.3s ease;
+        tr:hover td {
+            background-color: #f1f5f9;
         }
         
         td {
-            color: var(--text-primary);
+            color: var(--text-main);
         }
 
         ul {
             margin-bottom: 20px;
-            padding-left: 25px;
-            color: var(--text-secondary);
+            padding-left: 20px;
+            color: var(--text-muted);
+            list-style-type: disc;
         }
 
         li {
@@ -188,12 +183,13 @@
         }
 
         .company-list strong {
-            color: var(--accent-cyan);
+            color: #1a202c;
+            font-weight: 700;
         }
         
         .note {
             font-style: italic;
-            color: #64748b;
+            color: #718096;
             font-size: 0.9em;
             margin-top: -15px;
             margin-bottom: 20px;
@@ -202,7 +198,10 @@
 
         @media (max-width: 768px) {
             .container {
-                padding: 30px;
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2em;
             }
             th, td {
                 padding: 12px;
@@ -215,11 +214,11 @@
 <div class="container">
     <header>
         <h1>Export Report on Medical Disposable Products from India</h1>
-        <p style="text-align: center; font-size: 1.2em; color: var(--accent-cyan); font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">(2020–2025)</p>
+        <div class="subtitle">(2020–2025)</div>
         
-        <!-- Added Navigation Tabs -->
+        <!-- Redirects directly to the rendered GitHub Pages site -->
         <div class="nav-tabs">
-            <a href="https://github.com/RudraX-Github/Import_export/blob/main/Commodity_Catalog_App.html" target="_blank" class="tab-btn">All Products Tab</a>
+            <a href="https://rudrax-github.github.io/Import_export/Commodity_Catalog_App.html" target="_blank" class="btn">All Products</a>
         </div>
     </header>
 
@@ -475,7 +474,7 @@
         <p>The Indian medical disposable products sector stands at a critical juncture. Currently valued at a fraction of global output, the sector possesses the fundamental infrastructure, labor arbitrage, and policy backing to expand its global market share from a mere 1.65% to a projected 10%-12% over the next two decades. Realizing this potential requires navigating complex second and third-order challenges.</p>
 
         <div class="highlight-box">
-            <ul style="list-style-type: square; margin-bottom: 0;">
+            <ul style="margin-bottom: 0;">
                 <li><strong>Transitioning Up the Complexity Ladder:</strong> While India has achieved global dominance in the commoditized syringe and IV cannula markets, sustaining high-margin export growth necessitates a pivot toward higher-complexity devices. Market leaders like Poly Medicure are laying the blueprint by acquiring European firms to absorb advanced technologies in oncology, renal care, and cardiovascular access. Indian manufacturers must invest heavily in proprietary R&D to escape the hyper-competitive tender pricing wars characteristic of basic disposables.</li>
                 <li><strong>Regulatory Excellence as a Competitive Moat:</strong> The implementation of EU MDR 2017/745 and the strict enforcement of FDA CGMP standards should not be viewed merely as compliance burdens, but as strategic moats. The immense cost and documentation required for MDR compliance will inevitably force undercapitalized manufacturers out of the European market. Indian firms that proactively invest in robust Clinical Evaluation Reports (CERs), secure reliable Notified Body partnerships, and maintain impeccable ISO 13485 audit readiness will capture the market share vacated by non-compliant global competitors.</li>
                 <li><strong>Domesticating the Polymer Supply Chain:</strong> The current reliance on imported, specialized medical-grade polymers leaves the industry highly vulnerable to geopolitical shocks in the Middle East and maritime blockades. A strategic imperative for the sector is to foster deep collaboration with domestic petrochemical giants to localize the production of specific resins (HDPE, LDPE, medical-grade PVC). Domesticating the raw material supply chain will insulate the industry from freight volatility and stabilize long-term unit economics.</li>
