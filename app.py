@@ -7,6 +7,11 @@ from functools import reduce
 import urllib.parse
 import time
 
+# Import Specialized Modules for seamless single-portal routing
+from syringe_90183100_page import render_syringe_page
+from competitor_analysis_page import render_competitor_page
+from overall_report_page import render_overall_report_page
+
 # ----------------------------------------------------
 # 1. SETUP & SESSION STATE
 # ----------------------------------------------------
@@ -19,11 +24,12 @@ AUTH_API_URL = "https://script.google.com/macros/s/AKfycbz3puku5wA6mVD1imgoNOhQ5
 LSOD_CHAPTERS = [str(x).zfill(2) for x in [7,8,9,10,11,12,13,19,20,25,28,29,30,31,38,39,40,48,49,50,53,57,66,69,71,73,74,76,77,78,82,90,95,96]]
 
 # Initialize Session States
-for key in ['authenticated', 'username', 'user_id', 'is_master', 'password', 'user_prefs', 'lsod_mode', 'usd_rate']:
+for key in ['authenticated', 'username', 'user_id', 'is_master', 'password', 'user_prefs', 'lsod_mode', 'usd_rate', 'current_portal_view']:
     if key not in st.session_state:
         st.session_state[key] = False if isinstance(key, bool) else None
         if key == 'user_prefs': st.session_state[key] = {}
         if key == 'usd_rate': st.session_state[key] = 0.0
+        if key == 'current_portal_view': st.session_state[key] = "📊 Master TradeStat Catalog"
 
 # Master Filter State Initialization
 filter_keys = {
@@ -41,7 +47,7 @@ def reset_filters():
 
 def call_api(payload):
     try:
-        response = requests.post(AUTH_API_URL, json=payload)
+        response = requests.post(AUTH_API_URL, json=payload, timeout=10)
         return response.json()
     except Exception as e:
         return {"success": False, "message": f"Network Error: {str(e)}"}
@@ -143,12 +149,11 @@ def get_processed_data():
     if st.session_state.lsod_mode == "LSOD":
         df = df[df['Chapter'].isin(LSOD_CHAPTERS)]
         
-    # 2. USD Conversion
+    # 2. USD Conversion using user-given rate at login
     if st.session_state.usd_rate > 0:
         rate = st.session_state.usd_rate
         val_cols = [c for c in df.columns if 'Val' in c]
         for col in val_cols:
-            # USD = (Amount in Crores * 10000000) / USD rate
             df[col] = (df[col] * 10000000) / rate
             
     # 3. Inject User Preferences for the Data Editor State mapping
@@ -163,6 +168,7 @@ def get_processed_data():
 # ----------------------------------------------------
 def login_screen():
     st.markdown("<h1 style='text-align: center; color: #3b82f6;'>TradeStat Secure Portal</h1>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; color: #94a3b8; margin-bottom: 2rem;'>Single Commercial Access Gateway for Trade Intelligence & Specialized Modules</p>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         with st.form("auth_form"):
@@ -171,7 +177,7 @@ def login_screen():
             
             # Additional Login Parameters
             mode_input = st.selectbox("Data Mode", ["ALL", "LSOD"])
-            usd_input = st.number_input("USD Rate (Optional, 0 to ignore)", min_value=0.0, value=0.0, step=0.1)
+            usd_input = st.number_input("USD Conversion Rate (e.g., 83.5)", min_value=0.0, value=83.5, step=0.1, help="Used for all global currency conversions across the application.")
             
             c_btn1, c_btn2 = st.columns(2)
             with c_btn1: submit_login = st.form_submit_button("Sign In", use_container_width=True)
@@ -188,6 +194,7 @@ def login_screen():
                         st.session_state['is_master'] = res.get("isMaster", False)
                         st.session_state['lsod_mode'] = mode_input
                         st.session_state['usd_rate'] = usd_input
+                        st.session_state['current_portal_view'] = "📊 Master TradeStat Catalog"
                         
                         pref_res = call_api({"action": "get_prefs", "userId": st.session_state['user_id']})
                         if pref_res.get("success"):
@@ -204,7 +211,7 @@ def login_screen():
 def master_dashboard():
     st.title("👑 Master Admin Dashboard")
     if st.button("⬅ Return to Analytics"):
-        st.session_state['viewing_master'] = False
+        st.session_state['current_portal_view'] = "📊 Master TradeStat Catalog"
         st.rerun()
     st.divider()
     
@@ -238,7 +245,7 @@ def master_dashboard():
                 del_res = call_api({"action": "delete_chapter", "chapter": ch_to_del, "masterUser": st.session_state['username'], "masterPass": st.session_state['password']})
                 if del_res.get("success"):
                     st.success(del_res.get("message"))
-                    st.cache_data.clear() # Force re-fetch from sheets
+                    st.cache_data.clear()
                     time.sleep(2)
                     st.rerun()
                 else:
@@ -255,13 +262,7 @@ def analytics_dashboard():
     with head_c1: st.title(f"🌍 TradeStat {'LSOD' if st.session_state.lsod_mode == 'LSOD' else 'Global'} Analytics")
     with head_c2:
         st.markdown(f"<div style='text-align:right; color:#94a3b8;'>User: <strong>{st.session_state['username']}</strong></div>", unsafe_allow_html=True)
-        btn_cols = st.columns(2) if st.session_state['is_master'] else [st.container()]
-        if st.session_state['is_master']:
-            if btn_cols[0].button("👑 Master"):
-                st.session_state['viewing_master'] = True
-                st.rerun()
-        logout_container = btn_cols[1] if st.session_state['is_master'] else btn_cols[0]
-        if logout_container.button("Logout"):
+        if st.button("Logout", key="main_logout_btn"):
             for key in ['authenticated', 'username', 'user_id', 'password', 'is_master']: st.session_state[key] = None
             st.session_state['authenticated'] = False
             st.rerun()
@@ -269,15 +270,15 @@ def analytics_dashboard():
     with st.spinner("Processing Data Pipeline..."):
         df = get_processed_data()
 
-    # --- SIDEBAR CONTROLS ---
-    st.sidebar.button("🏠 Reset / Home", on_click=reset_filters, type="primary", use_container_width=True)
+    # --- SIDEBAR CONTROLS & MODULE ROUTER ---
+    st.sidebar.button("🏠 Reset Filters", on_click=reset_filters, type="primary", use_container_width=True)
     
     target_year = st.sidebar.selectbox("📅 Financial Year", ['All', '25_26', '24_25', '23_24', '22_23', '21_22'], key='filter_year')
     curr_col = f'Curr_Val_{target_year}'
     base_col = f'Base_Val_{target_year}'
     growth_col = f'Growth_{target_year}'
 
-    # Dynamic Market Tier Calculation (accounting for USD Conversion formula shift)
+    # Dynamic Market Tier Calculation
     def get_tier(val):
         if st.session_state.usd_rate == 0:
             tier_well = 250
@@ -336,7 +337,7 @@ def analytics_dashboard():
     with c4: st.markdown(f"""<div class="metric-card" style="border-left-color: #8b5cf6;"><div class="metric-title"><i class="fa-solid fa-seedling"></i> Just Started</div><div class="metric-value">{sym}{just_started_val:,.0f}</div><div class="metric-sub" style="color:#8b5cf6;">Lowest Tier</div></div>""", unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # --- TABS: REORDERED EXACTLY AS REQUESTED ---
+    # --- TABS ---
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "📋 Master Catalog", "📊 Visual Analytics", "🚀 Growth & Trends", 
         "📁 Chapter Aggregation", "💡 AI Insights", "⭐ My Personal Watchlist"
@@ -349,7 +350,6 @@ def analytics_dashboard():
         display_cols = ['HSCode', 'Commodity', '⭐ Preferred', '📝 Analysis Note', 'Sector', 'Chapter', 'Market Tier', base_col, curr_col, growth_col, 'Product Image']
         edit_df = f_df[display_cols].sort_values(curr_col, ascending=False).reset_index(drop=True)
         
-        # Render Interactive Data Editor (Product Image is included and disabled)
         st.data_editor(
             edit_df,
             use_container_width=True, hide_index=True, height=500,
@@ -407,7 +407,6 @@ def analytics_dashboard():
 
     with tab3:
         st.markdown(f"**Top 20 Surging Commodities ({target_year.replace('_','-')})**")
-        # Scale the base threshold to avoid dividing by 0 anomalies
         base_thresh = 5 if st.session_state.usd_rate == 0 else (5 * 10000000)/st.session_state.usd_rate
         valid_growth_df = f_df[f_df[base_col] > base_thresh].sort_values(growth_col, ascending=False).head(20)
         
@@ -475,10 +474,40 @@ def analytics_dashboard():
                     st.markdown(f"**Latest Growth:** {prod_data['Growth_25_26']:.2f}%")
                     st.markdown(f"[🖼️ View Product Images]({prod_data['Product Image']})")
 
+# ----------------------------------------------------
+# 6. CENTRAL ENTERPRISE APPLICATION ROUTER
+# ----------------------------------------------------
 if __name__ == "__main__":
     if not st.session_state['authenticated']:
         login_screen()
-    elif st.session_state.get('viewing_master', False) and st.session_state['is_master']:
-        master_dashboard()
     else:
-        analytics_dashboard()
+        # Commercial Navigation Hub in Sidebar
+        st.sidebar.markdown("## 🧭 Navigation Portal")
+        nav_options = [
+            "📊 Master TradeStat Catalog", 
+            "💉 Syringe (HS 90183100) Intelligence",
+            "⚔️ Competitor Analysis (Top 10 Markets)",
+            "📑 Overall Strategic Report & Action Plan"
+        ]
+        if st.session_state['is_master']:
+            nav_options.append("👑 Master Admin Dashboard")
+            
+        selected_view = st.sidebar.radio(
+            "Go to Module:",
+            options=nav_options,
+            index=nav_options.index(st.session_state['current_portal_view']) if st.session_state['current_portal_view'] in nav_options else 0,
+            key="portal_navigation_radio"
+        )
+        st.session_state['current_portal_view'] = selected_view
+        
+        # Route to appropriate authenticated module
+        if selected_view == "👑 Master Admin Dashboard" and st.session_state['is_master']:
+            master_dashboard()
+        elif selected_view == "💉 Syringe (HS 90183100) Intelligence":
+            render_syringe_page()
+        elif selected_view == "⚔️ Competitor Analysis (Top 10 Markets)":
+            render_competitor_page()
+        elif selected_view == "📑 Overall Strategic Report & Action Plan":
+            render_overall_report_page()
+        else:
+            analytics_dashboard()
