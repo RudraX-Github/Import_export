@@ -21,7 +21,7 @@ st.set_page_config(page_title="TradeStat Analytics Hub", layout="wide", page_ico
 AUTH_API_URL = "https://script.google.com/macros/s/AKfycbz3puku5wA6mVD1imgoNOhQ581h5nC3wVKltCxLE-iLTRWQE15fHMlMr_d1KTcTc50-/exec"
 
 # Exact LSOD Chapters Requested
-LSOD_CHAPTERS = [str(x).zfill(2) for x in [7,8,9,10,11,12,13,19,20,25,28,29,30,31,38,39,40,48,49,50,53,57,66,69,71,73,74,76,77,78,82,90,95,96]]
+LSOD_CHAPTERS = [str(x).zfill(2) for x in (7,8,9,10,11,12,13,19,20,25,28,29,30,31,38,39,40,48,49,50,53,57,66,69,71,73,74,76,77,78,82,90,95,96)]
 
 # Initialize Session States
 for key in ['authenticated', 'username', 'user_id', 'is_master', 'password', 'user_prefs', 'lsod_mode', 'usd_rate', 'current_portal_view']:
@@ -75,9 +75,9 @@ st.markdown("""
 def get_sector(chapter_str):
     try: ch = int(chapter_str)
     except: return 'Miscellaneous'
-    if ch in [1, 2, 3]: return 'Seafood & Meat'
+    if ch in (1, 2, 3): return 'Seafood & Meat'
     if 4 <= ch <= 24: return 'Agriculture & Food'
-    if ch in [25, 26]: return 'Minerals & Mining'
+    if ch in (25, 26): return 'Minerals & Mining'
     if ch == 27: return 'Petroleum & Fuels'
     if 28 <= ch <= 38: return 'Chemicals & Allied'
     if 39 <= ch <= 40: return 'Plastics & Rubber'
@@ -109,10 +109,13 @@ def fetch_base_data():
 
     for year, sheet_id in sheet_ids.items():
         df = pd.read_csv(base_url.format(sheet_id), dtype=str)
-        cols = df.columns
+        col_dict = dict(enumerate(df.columns))
         df = df.rename(columns={
-            cols[1]: 'HSCode', cols[2]: 'Commodity',
-            cols[3]: f'Base_Val_{year}', cols[5]: f'Curr_Val_{year}', cols[7]: f'Growth_{year}'
+            col_dict.get(1): 'HSCode',
+            col_dict.get(2): 'Commodity',
+            col_dict.get(3): f'Base_Val_{year}',
+            col_dict.get(5): f'Curr_Val_{year}',
+            col_dict.get(7): f'Growth_{year}'
         })
         df = df[['HSCode', 'Commodity', f'Base_Val_{year}', f'Curr_Val_{year}', f'Growth_{year}']]
         df = df.dropna(subset=['HSCode'])
@@ -135,7 +138,7 @@ def fetch_base_data():
     
     merged_df['Commodity'] = merged_df['HSCode'].map(commodity_dict).fillna("Unknown")
     merged_df = merged_df.fillna(0)
-    merged_df['Chapter'] = merged_df['HSCode'].str[:2]
+    merged_df['Chapter'] = merged_df['HSCode'].str.slice(0, 2)
     merged_df['Sector'] = merged_df['Chapter'].apply(get_sector)
     merged_df['Product_Select'] = merged_df['HSCode'] + " - " + merged_df['Commodity']
     merged_df['Product Image'] = "https://www.google.com/search?tbm=isch&q=" + merged_df['HSCode'] + "+" + merged_df['Commodity'].apply(lambda x: urllib.parse.quote_plus(str(x)))
@@ -169,7 +172,7 @@ def get_processed_data():
 def login_screen():
     st.markdown("<h1 style='text-align: center; color: #3b82f6;'>TradeStat Secure Portal</h1>", unsafe_allow_html=True)
     st.markdown("<p style='text-align: center; color: #94a3b8; margin-bottom: 2rem;'>Single Commercial Access Gateway for Trade Intelligence & Specialized Modules</p>", unsafe_allow_html=True)
-    col1, col2, col3 = st.columns([1, 2, 1])
+    col1, col2, col3 = st.columns((1, 2, 1))
     with col2:
         with st.form("auth_form"):
             user_input = st.text_input("User Name")
@@ -223,7 +226,7 @@ def master_dashboard():
         if res.get("success"):
             users = res.get("users", [])
             for u in users:
-                c1, c2, c3, c4 = st.columns([2, 3, 3, 2])
+                c1, c2, c3, c4 = st.columns((2, 3, 3, 2))
                 c1.code(u['id'][:8] + "...")
                 c2.markdown(f"**{u['username']}**")
                 c3.markdown(f"*{u['password']}*")
@@ -258,7 +261,7 @@ def analytics_dashboard():
     sym = "$" if st.session_state.usd_rate > 0 else "₹"
     unit_label = f"({sym})" if st.session_state.usd_rate > 0 else f"({sym} Cr)"
 
-    head_c1, head_c2 = st.columns([4, 1])
+    head_c1, head_c2 = st.columns((4, 1))
     with head_c1: st.title(f"🌍 TradeStat {'LSOD' if st.session_state.lsod_mode == 'LSOD' else 'Global'} Analytics")
     with head_c2:
         st.markdown(f"<div style='text-align:right; color:#94a3b8;'>User: <strong>{st.session_state['username']}</strong></div>", unsafe_allow_html=True)
@@ -338,9 +341,10 @@ def analytics_dashboard():
     st.markdown("<br>", unsafe_allow_html=True)
 
     # --- TABS ---
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
         "📋 Master Catalog", "📊 Visual Analytics", "🚀 Growth & Trends", 
-        "📁 Chapter Aggregation", "💡 AI Insights", "⭐ My Personal Watchlist"
+        "📁 Chapter Aggregation", "💡 AI Insights", "⭐ My Personal Watchlist",
+        "🌐 India's FTAs"
     ])
 
     with tab1:
@@ -455,7 +459,7 @@ def analytics_dashboard():
             if selected_hs:
                 prod_data = watchlist_df[watchlist_df['HSCode'] == selected_hs].iloc[0]
                 
-                c_chart, c_details = st.columns([2, 1])
+                c_chart, c_details = st.columns((2, 1))
                 with c_chart:
                     trend_data = {
                         'Financial Year': ['20-21', '21-22', '22-23', '23-24', '24-25', '25-26'],
@@ -473,6 +477,43 @@ def analytics_dashboard():
                     st.markdown(f"**Market Tier:** {prod_data['Market Tier']}")
                     st.markdown(f"**Latest Growth:** {prod_data['Growth_25_26']:.2f}%")
                     st.markdown(f"[🖼️ View Product Images]({prod_data['Product Image']})")
+
+    with tab7:
+        st.markdown("### 🌐 India's Free Trade Agreements (FTAs) Intelligence Portal")
+        st.markdown("""
+        Access comprehensive trade intelligence, preferential tariff concessions, rules of origin (ROO), 
+        and bilateral trade data across India's active and upcoming Free Trade Agreements (FTAs, CEPAs, CECAs, and PTAs).
+        """)
+        
+        st.markdown("""
+        <div style="background: #151c2c; border: 1px solid #26334d; border-left: 5px solid #3b82f6; padding: 1.25rem; border-radius: 10px; margin-bottom: 1.5rem;">
+            <h4 style="color: #60a5fa; margin-top: 0; margin-bottom: 0.5rem;">🚀 Direct FTA Web Application Access</h4>
+            <p style="color: #cbd5e1; margin-bottom: 0.75rem; font-size: 0.95rem;">
+                Explore partner-country trade pacts, tariff reduction schedules, and duty benefits on the dedicated Vercel application.
+            </p>
+            <a href="https://india-s-fta.vercel.app/" target="_blank" style="display: inline-block; background-color: #2563eb; color: white; padding: 0.5rem 1.2rem; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem;">
+                Open India's FTA Portal ↗
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        col_fta1, col_fta2 = st.columns(2)
+        with col_fta1:
+            st.markdown("""
+            **Key Features Available on the Portal:**
+            - 📑 **Comprehensive Agreement Coverage:** Key trade pacts including UAE CEPA, Australia ECTA, ASEAN, Japan CEPA, and Korea CEPA.
+            - 🔍 **Preferential Duty Lookup:** Compare standard Most Favoured Nation (MFN) duty rates against concessional FTA rates.
+            - ⚖️ **Rules of Origin & Value Addition:** Specific criteria and documentation required to claim preferential origin benefits.
+            """)
+        with col_fta2:
+            st.markdown("""
+            **Strategic Utility:**
+            - 📈 **Market Entry Opportunities:** Identify target export destinations offering duty concessions for Indian commodities.
+            - 🛡️ **Trade Compliance:** Reference official trade pact documentation and partner country schedules.
+            - 🔗 **Direct Portal URL:** [https://india-s-fta.vercel.app/](https://india-s-fta.vercel.app/)
+            """)
+            
+        st.link_button("🌐 Launch India's FTA Application (Vercel)", "https://india-s-fta.vercel.app/", use_container_width=True, type="primary")
 
 # ----------------------------------------------------
 # 6. CENTRAL ENTERPRISE APPLICATION ROUTER
